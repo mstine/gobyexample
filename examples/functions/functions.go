@@ -12,7 +12,7 @@ func plus(a int, b int) int {
 
 func main() {
 	result := plus(1, 2)
-	fmt.Println("1 + 2 =", res)
+	fmt.Println("1 + 2 =", result)
 }
 
 // END OMIT
