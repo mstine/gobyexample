@@ -11,8 +11,8 @@ func plus(a int, b int) int {
 }
 
 func main() {
-	res := plus(1, 2)
-	fmt.Println("1+2 =", res)
+	result := plus(1, 2)
+	fmt.Println("1 + 2 =", res)
 }
 
 // END OMIT
