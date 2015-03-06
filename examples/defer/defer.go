@@ -8,37 +8,34 @@ package main
 import "fmt"
 import "os"
 
-// Suppose we wanted to create a file, write to it,
-// and then close when we're done. Here's how we could
-// do that with `defer`.
+// START_TWO OMIT
 func main() {
-
-    // Immediately after getting a file object with
-    // `createFile`, we defer the closing of that file
-    // with `closeFile`. This will be executed at the end
-    // of the enclosing function (`main`), after
-    // `writeFile` has finished.
-    f := createFile("/tmp/defer.txt")
-    defer closeFile(f)
-    writeFile(f)
+	f := createFile("/tmp/defer.txt")
+	defer closeFile(f)
+	writeFile(f)
 }
 
+// END_TWO OMIT
+
+// START_ONE OMIT
 func createFile(p string) *os.File {
-    fmt.Println("creating")
-    f, err := os.Create(p)
-    if err != nil {
-        panic(err)
-    }
-    return f
+	fmt.Println("creating")
+	f, err := os.Create(p)
+	if err != nil {
+		panic(err)
+	}
+	return f
 }
 
 func writeFile(f *os.File) {
-    fmt.Println("writing")
-    fmt.Fprintln(f, "data")
+	fmt.Println("writing")
+	fmt.Fprintln(f, "data")
 
 }
 
 func closeFile(f *os.File) {
-    fmt.Println("closing")
-    f.Close()
+	fmt.Println("closing")
+	f.Close()
 }
+
+// END_ONE OMIT
