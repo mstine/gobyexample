@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// START OMIT
+// START_ONE OMIT
 type argError struct {
 	arg  int
 	prob string
@@ -19,6 +19,9 @@ func f2(arg int) (int, error) {
 	return arg + 3, nil
 }
 
+// END_ONE OMIT
+
+// START_TWO OMIT
 func main() {
 	for _, i := range []int{7, 42} {
 		if r, e := f2(i); e != nil {
@@ -35,4 +38,4 @@ func main() {
 	}
 }
 
-// END OMIT
+// END_TWO OMIT
