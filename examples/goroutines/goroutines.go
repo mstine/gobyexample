@@ -10,11 +10,12 @@ func f(from string) {
 		fmt.Println(from, ":", i)
 	}
 }
+
 // END_F OMIT
 
 func main() {
-  done := make(chan[string])
-  // START_MAIN OMIT
+	done := make(chan string)
+	// START_MAIN OMIT
 	// Synchronous
 	f("direct")
 
@@ -25,8 +26,8 @@ func main() {
 	go func(msg string) {
 		fmt.Println(msg)
 	}("going")
-  // END_MAIN OMIT
-  <-done
+	// END_MAIN OMIT
+	<-done
 }
 
 // END OMIT
